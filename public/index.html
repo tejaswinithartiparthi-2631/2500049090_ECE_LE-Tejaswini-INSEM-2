@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Portal | Secure Access</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="logo">SP</div>
+      <div><h1>Student Portal</h1><p>Secure access to your academic space</p></div>
+    </header>
+
+    <section class="auth-grid" id="authPanel">
+      <form id="registerForm" class="panel">
+        <h2>Create account</h2>
+        <label>Full name<input name="name" required minlength="2" maxlength="80" placeholder="Your name"></label>
+        <label>Email<input name="email" type="email" required placeholder="you@example.com"></label>
+        <label>Password<input name="password" type="password" required minlength="8" maxlength="72" placeholder="At least 8 characters"></label>
+        <button>Create account</button>
+      </form>
+      <form id="loginForm" class="panel">
+        <h2>Welcome back</h2>
+        <label>Email<input name="email" type="email" required placeholder="you@example.com"></label>
+        <label>Password<input name="password" type="password" required placeholder="Your password"></label>
+        <button>Log in</button>
+      </form>
+    </section>
+
+    <section id="dashboard" class="panel hidden">
+      <div class="dash-head"><div><h2 id="welcome">Dashboard</h2><p id="userMeta"></p></div><button id="logout" class="secondary">Log out</button></div>
+      <div class="actions">
+        <button data-endpoint="/api/courses">View courses</button>
+        <button data-endpoint="/api/records">View academic records</button>
+        <button data-endpoint="/api/admin" class="secondary">Test admin access</button>
+      </div>
+      <pre id="result">Choose a protected resource above.</pre>
+    </section>
+    <p id="status" class="status" role="status"></p>
+    <footer>Demo project · Passwords are hashed · Protected APIs require a valid JWT</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
